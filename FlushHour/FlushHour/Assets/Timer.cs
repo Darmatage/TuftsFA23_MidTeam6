@@ -10,27 +10,33 @@ public class Timer : MonoBehaviour {
     //Object variables
     public GameObject timeText;
     public GameObject gameOverText;
-    public int gameTime = 20;
-    private float gameTimer = 0f;
-    private float displayTime = 3.0f;
+    public GameObject scoreText;
+    public int startTime = 0;
+    public int endTime = 20;
+    private float startTimer = 0f;
+    private float displayTime = 5.0f;
+    private float score = 0;
 
     void Start(){
         gameOverText.SetActive(false);
+        scoreText.SetActive(false);
+        score = endTime;
         UpdateTime();
     }
 
     void FixedUpdate()
     {
-        gameTimer += 0.01f;
-        if (gameTimer >= 1f)
+        startTimer += 0.01f;
+        if (startTimer >= 1f)
         {
-            gameTime -= 1;
-            gameTimer = 0;
+            startTime += 1;
+            startTimer = 0;
             UpdateTime();
         }
-        if (gameTime <= 0)
+        if (startTime >= endTime)
         {
-            gameTime = 0;
+            startTime = endTime;
+
             StartCoroutine(DisplayGameOver());
 
 
@@ -39,12 +45,17 @@ public class Timer : MonoBehaviour {
     private IEnumerator DisplayGameOver()
     {
         // Display the game object
+        score = endTime - startTime;
+        UpdateScore();
         gameOverText.SetActive(true);
+        scoreText.SetActive(true);
+
         // Wait for the specified display time
         yield return new WaitForSeconds(displayTime);
 
         // Hide the game object
         gameOverText.SetActive(false);
+        scoreText.SetActive(false);
         SceneManager.LoadScene("MainMenu");
 
         // You can perform any additional cleanup or actions here
@@ -53,13 +64,18 @@ public class Timer : MonoBehaviour {
     }
 
     void spawnNPCs(){
-            if (gameTime > 0){
+            if (startTime < 0){
                 //   Instantiate(NPCPrefab, spawnPoint.position, Quaternion.identity);
             }
     }
 
     public void UpdateTime(){
         Text timeTextB = timeText.GetComponent<Text>();
-        timeTextB.text = "" + gameTime;
+        timeTextB.text = "" + startTime;
     }
+    public void UpdateScore()
+{
+    Text scoreTextt = scoreText.GetComponent<Text>();
+    scoreTextt.text = "Score: " + score.ToString();
+}
 }
