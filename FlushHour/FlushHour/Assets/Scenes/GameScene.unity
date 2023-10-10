@@ -197,7 +197,7 @@ MonoBehaviour:
   gameOverText: {fileID: 1165496753}
   scoreText: {fileID: 1205610946}
   startTime: 0
-  endTime: 20
+  endTime: 60
 --- !u!4 &183245193
 Transform:
   m_ObjectHideFlags: 0
