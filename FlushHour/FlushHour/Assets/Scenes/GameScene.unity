@@ -888,7 +888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aafaf4d7a3f3a472a99d12d7817c2e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shidderPrefab: {fileID: 709690823459187043, guid: e47363a2d85dc45579499c5db2c64931, type: 3}
+  shidderPrefab: {fileID: 1131655846232101178, guid: b15544ab2d587470b87f8f594a2ea6c7, type: 3}
   spawnPoint1: {fileID: 43679151}
   spawnPoint2: {fileID: 1687103416}
   spawnRangeStart: 2
