@@ -39,7 +39,7 @@ public class PoopSpawner : MonoBehaviour
         }
         else if (spawnTimer > 0.75)
         {
-            //game needs to end here
+            Debug.Log("lost minigame");
         }
     }
 
