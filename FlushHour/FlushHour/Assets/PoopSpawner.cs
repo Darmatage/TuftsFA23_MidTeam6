@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PoopSpawner : MonoBehaviour
 {
@@ -20,6 +22,7 @@ public class PoopSpawner : MonoBehaviour
 
     //counting variables
     private int totalPoops = 0;
+    private List<GameObject> spawnedMonsters = new List<GameObject>();
 
     void Start()
     {
@@ -37,9 +40,16 @@ public class PoopSpawner : MonoBehaviour
             spawnTimer = 0f;
             totalPoops++;
         }
-        else if (spawnTimer > 0.75)
+        
+        if (spawnTimer > 0.75 && AreObjectsRemaining())
         {
-            Debug.Log("lost minigame");
+            Debug.Log(spawnedMonsters.Count + "You lose");
+            SceneManager.LoadScene("GameScene");
+        }
+        else if (spawnTimer > 0.75 && !AreObjectsRemaining())
+        {
+            Debug.Log("You win");
+            SceneManager.LoadScene("GameScene");
         }
     }
 
@@ -47,6 +57,21 @@ public class PoopSpawner : MonoBehaviour
     {
         int SPnum = Random.Range(0, rangeEnd);
         spawnPoint = spawnPoints[SPnum];
-        Instantiate(poopPrefab, spawnPoint.position, Quaternion.identity);
+        GameObject Monster = Instantiate(poopPrefab, spawnPoint.position, Quaternion.identity);
+        spawnedMonsters.Add(Monster);
+    }
+
+    bool AreObjectsRemaining()
+    {
+        for (int i = spawnedMonsters.Count - 1; i >= 0; i--)
+        {
+            if (spawnedMonsters[i] == null)
+            {
+                spawnedMonsters.RemoveAt(i);
+            }
+        }
+
+        // If the list is empty, all objects have been destroyed.
+        return spawnedMonsters.Count != 0;
     }
 }
