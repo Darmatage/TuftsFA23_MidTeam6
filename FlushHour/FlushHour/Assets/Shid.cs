@@ -49,13 +49,14 @@ public class Shid : MonoBehaviour
     // This function is a coroutine that handles the pickup logic
     IEnumerator Pickup()
     {
-        // Wait for 3 seconds
-        yield return new WaitForSeconds(2f);
+        // Wait for 1 seconds
+        yield return new WaitForSeconds(0.1f);
 
         // Play the pickup sound
         //audioSource.PlayOneShot(pickupSound);
 
         // Destroy this item after a delay (to allow the sound to finish playing)
         Destroy(gameObject, pickupSound.length);
+        gameControl.control.totalCleaned++;
     }
 }

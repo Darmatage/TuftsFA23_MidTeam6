@@ -7,7 +7,8 @@ public class gameControl : MonoBehaviour
 
     public static gameControl control;
 
-    public int score;
+    public int totalCleaned;
+    public int shidOnGround;
 
     private void Awake()
     {
