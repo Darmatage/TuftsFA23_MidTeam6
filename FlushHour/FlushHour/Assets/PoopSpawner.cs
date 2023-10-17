@@ -49,6 +49,7 @@ public class PoopSpawner : MonoBehaviour
         else if (spawnTimer > 0.75 && !AreObjectsRemaining())
         {
             Debug.Log("You win");
+            gameControl.control.totalCleaned += 10;
             SceneManager.LoadScene("GameScene");
         }
     }
