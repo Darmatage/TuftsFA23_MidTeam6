@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using System.Threading.Tasks;
 
 public class TravelToShid : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class TravelToShid : MonoBehaviour
     public Sprite relaxedSprite;
 
     public Transform target;
+    public AIBase aibase;
     //public Transform spawn1;
     //public Transform spawn2;
 
@@ -85,7 +87,7 @@ public class TravelToShid : MonoBehaviour
     {
         
         targetPosition = new Vector3(0f, 0f, 0f);
-        spawn1Position= new Vector3(-7.5f, -4f, 0f);
+        spawn1Position= new Vector3(-6f, -4f, 0f);
         spawn2Position = new Vector3(6f, -4f, 0f);
         
 
@@ -246,8 +248,7 @@ public class TravelToShid : MonoBehaviour
                 flip();
             }
         }
-
-        if (Vector3.Distance(transform.position, temp) <= 0.2f && !reachedPoint)
+        if (Vector3.Distance(transform.position, temp) <= 1.36f && !reachedPoint)
         {
             reachedPoint = true;
             Invoke("dropShid", 1f);            
@@ -267,10 +268,11 @@ public class TravelToShid : MonoBehaviour
 
             if (!exiting)
             {
-                StartCoroutine(standStill()); 
+                StartCoroutine(standStill());
+
             }
 
-            if (Vector3.Distance(transform.position, exit.transform.position) <=0.1f)
+            if (Vector3.Distance(transform.position, exit.transform.position) <= 1.36f)
             {
                 DestroyShidder();
             }
@@ -280,6 +282,8 @@ public class TravelToShid : MonoBehaviour
     IEnumerator pathToExit()
     {
         exiting = true;
+        StartCoroutine(standStill());
+        aibase.maxSpeed = 4f;
         path = seeker.StartPath(transform.position, exit.transform.position, OnPathComplete);
         yield return StartCoroutine(path.WaitForPath());
     }
@@ -287,7 +291,11 @@ public class TravelToShid : MonoBehaviour
     IEnumerator standStill()
     {
         yield return new WaitForSeconds(1.5f);
-        StartCoroutine(pathToExit());
+        if (seeker.IsDone())
+        {
+            StartCoroutine(pathToExit());
+        }
+        
     }
 
     void OnPathComplete(Path p)

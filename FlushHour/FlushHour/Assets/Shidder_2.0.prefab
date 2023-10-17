@@ -133,7 +133,7 @@ MonoBehaviour:
   radius: 0.15
   height: 1
   canMove: 1
-  maxSpeed: 4
+  maxSpeed: 7
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -224,6 +224,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6300655482311482496}
   relaxedSprite: {fileID: 21300000, guid: a567def9484aef94db575f402f0b253c, type: 3}
   target: {fileID: 4326509916511528720, guid: fec28a522c29c4b37885b8131bf422df, type: 3}
+  aibase: {fileID: 1183625948565002914}
   worried:
   - {fileID: 21300000, guid: b9dc883a969bf4816ac13fa65d7c01de, type: 3}
   - {fileID: 21300000, guid: 7c9f5a1e1634f433baa17cdc713151d8, type: 3}
