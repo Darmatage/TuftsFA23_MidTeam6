@@ -9,9 +9,6 @@ public class scoreManager : MonoBehaviour
     public static scoreManager instance;
 
     public Text scoreText;
-    public Text highscoreText;
-
-    int highscore = 0;
 
     private void Awake()
     {
@@ -22,7 +19,6 @@ public class scoreManager : MonoBehaviour
     void Start()
     {
         scoreText.text = (gameControl.control.totalCleaned).ToString();
-        highscoreText.text = "HIGHSCORE: " + highscore.ToString();
     }
 
     public void AddPoint()

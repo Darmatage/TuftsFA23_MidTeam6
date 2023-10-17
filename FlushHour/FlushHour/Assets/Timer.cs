@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour {
     void Start(){
         gameOverText.SetActive(false);
         scoreText.SetActive(false);
-        score = endTime;
+        score = 0;
         UpdateTime();
     }
 
@@ -45,7 +45,7 @@ public class Timer : MonoBehaviour {
     private IEnumerator DisplayGameOver()
     {
         // Display the game object
-        score = endTime - startTime;
+        score = gameControl.control.totalCleaned;
         UpdateScore();
         gameOverText.SetActive(true);
         scoreText.SetActive(true);
