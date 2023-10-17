@@ -2082,13 +2082,53 @@ PrefabInstance:
       propertyPath: pickupSound
       value: 
       objectReference: {fileID: 8300000, guid: 11ef1b3971253e847ad4bf387a3d6722, type: 3}
+    - target: {fileID: 6549444209197156599, guid: 07a701ca5a7bb864ab0b0ef8a6f64454, type: 3}
+      propertyPath: sprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6549444209197156599, guid: 07a701ca5a7bb864ab0b0ef8a6f64454, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 57da23acf3dd4884c9892589cf296821, type: 3}
+    - target: {fileID: 6549444209197156599, guid: 07a701ca5a7bb864ab0b0ef8a6f64454, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3a12fb371b17dbf44bcdf6ccf2031267, type: 3}
+    - target: {fileID: 6549444209197156599, guid: 07a701ca5a7bb864ab0b0ef8a6f64454, type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: ffc9fdddf01edc1488edd28b60a40851, type: 3}
+    - target: {fileID: 6549444209197156599, guid: 07a701ca5a7bb864ab0b0ef8a6f64454, type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: f407b70eae61cf84eadeeb624dbe0181, type: 3}
     - target: {fileID: 7025670618694378593, guid: 07a701ca5a7bb864ab0b0ef8a6f64454, type: 3}
       propertyPath: m_Name
       value: Triangle
       objectReference: {fileID: 0}
     - target: {fileID: 8625605286488258564, guid: 07a701ca5a7bb864ab0b0ef8a6f64454, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625605286488258564, guid: 07a701ca5a7bb864ab0b0ef8a6f64454, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625605286488258564, guid: 07a701ca5a7bb864ab0b0ef8a6f64454, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625605286488258564, guid: 07a701ca5a7bb864ab0b0ef8a6f64454, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625605286488258564, guid: 07a701ca5a7bb864ab0b0ef8a6f64454, type: 3}
       propertyPath: m_SortingOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625605286488258564, guid: 07a701ca5a7bb864ab0b0ef8a6f64454, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9062437054353132787, guid: 07a701ca5a7bb864ab0b0ef8a6f64454, type: 3}
       propertyPath: m_IsTrigger
