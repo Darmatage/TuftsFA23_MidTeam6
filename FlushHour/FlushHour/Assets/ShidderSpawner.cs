@@ -24,14 +24,12 @@ public class ShidderSpawner : MonoBehaviour
 
     void Start()
     {
-        //timerScript = GameObject.FindGameObjectWithTag("Timer");
         timerVar = timerScript1.GetComponent <Timer> ();
         newRangeEnd = spawnRangeEnd;
     }
 
     void FixedUpdate()
     {
-        //StartCoroutine(createNewRangeEnd());
         createNewRangeEnd();
 
         timeToSpawn = Random.Range(spawnRangeStart, newRangeEnd);
@@ -46,13 +44,9 @@ public class ShidderSpawner : MonoBehaviour
     void createNewRangeEnd()
     {
         int time = timerVar.startTime;
-        Debug.Log(newRangeEnd);
-        //Debug.Log(time);
 
-        //yield return new WaitForSeconds(4f);
         if (time > 0 && time % 10 == 0)
         {
-            Debug.Log("New Range End!!");
             newRangeEnd = spawnRangeEnd - ((spawnRangeEnd*time/10*1.7f) / 10);
 
         }
