@@ -2045,7 +2045,7 @@ PrefabInstance:
     - target: {fileID: 6549444209197156599, guid: 07a701ca5a7bb864ab0b0ef8a6f64454, type: 3}
       propertyPath: audioSource
       value: 
-      objectReference: {fileID: 1568464511}
+      objectReference: {fileID: 2028932798}
     - target: {fileID: 6549444209197156599, guid: 07a701ca5a7bb864ab0b0ef8a6f64454, type: 3}
       propertyPath: pickupSound
       value: 
@@ -2572,7 +2572,7 @@ Transform:
   m_Children:
   - {fileID: 1933723354}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1598673190
 MonoBehaviour:

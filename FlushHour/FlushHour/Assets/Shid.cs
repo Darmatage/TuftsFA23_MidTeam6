@@ -13,11 +13,18 @@ public class Shid : MonoBehaviour
     // The reference to the coroutine
     private Coroutine pickupCoroutine;
 
-    // Start is called before the first frame update
-    void Start()
+    // Sprites
+    public Sprite[] sprites;
+
+    void Awake()
     {
         // Get the AudioSource component
         audioSource = GetComponent<AudioSource>();
+
+        GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, 4)];
+
+        // Increase counter of shid on ground
+        gameControl.control.shidOnGround++;
     }
 
     // This function is called when another collider enters this collider
@@ -50,13 +57,13 @@ public class Shid : MonoBehaviour
     IEnumerator Pickup()
     {
         // Wait for 1 seconds
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
 
         // Play the pickup sound
         //audioSource.PlayOneShot(pickupSound);
-
-        // Destroy this item after a delay (to allow the sound to finish playing)
-        Destroy(gameObject, pickupSound.length);
         gameControl.control.totalCleaned++;
+        gameControl.control.shidOnGround--;
+        // Destroy this item after a delay
+        Destroy(gameObject);
     }
 }

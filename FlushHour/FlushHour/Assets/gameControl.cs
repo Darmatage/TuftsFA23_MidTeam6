@@ -13,12 +13,13 @@ public class gameControl : MonoBehaviour
     private void Awake()
     {
         //if a control already, delete
-
-        //If none, make this the control
         if (control == null) {
             control = this; 
             DontDestroyOnLoad(gameObject);
-        } else if (control != this) {
+
+        //If none, make this the control
+        }
+        else if (control != this) {
             Destroy(gameObject);
         }
 
